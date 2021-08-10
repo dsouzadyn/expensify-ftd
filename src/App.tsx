@@ -1,30 +1,29 @@
 import * as React from "react"
 import {
   ChakraProvider,
-  Box,
-  Grid,
   theme,
-  Flex,
-  Spacer,
 } from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { LoginForm } from "./components/login-form.component"
+import {
+  Route, Router,
+  Switch,
+} from "react-router-dom"
+import { LoginForm } from "./components/login-form/login-form.component"
+import { createBrowserHistory } from "history"
+import { SignUpForm } from "./components/signup-form/signup-form.component"
+
+const history = createBrowserHistory()
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <Flex>
-          <Spacer />
-          <Box w="320px">
-            <LoginForm />
-          </Box>
-          <Spacer />
-        </Flex>
-      </Grid>
-
-
-    </Box>
+    <Router history={history}>
+      <Switch>
+        <Route path="/signup">
+          <SignUpForm />
+        </Route>
+        <Route exact path="/">
+          <LoginForm />
+        </Route>
+      </Switch>
+    </Router>
   </ChakraProvider>
 )
