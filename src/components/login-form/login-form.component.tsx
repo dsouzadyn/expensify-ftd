@@ -1,5 +1,5 @@
 import * as React from "react"
-import { VStack, Text, Input, Button, FormControl, FormErrorMessage, Alert, AlertIcon, Grid, Box, Flex, Spacer, Link, Fade, Center } from "@chakra-ui/react"
+import { VStack, Text, Input, Button, FormControl, FormErrorMessage, Alert, AlertIcon, Grid, Box, Flex, Spacer, Link, Fade } from "@chakra-ui/react"
 import { Formik, Form, FormikHelpers, Field, FieldProps, FormikProps } from "formik";
 import * as Yup from "yup";
 import { fetchToken } from "../../servies/auth.service";
@@ -61,7 +61,7 @@ export class LoginForm extends React.Component<LoginFormProps, LoginFormState> {
     render() {
         return (
 
-            <Center h="100%">
+            <Box textAlign="center" h="100%">
                 <Grid fontSize="xl">
                     <ColorModeSwitcher justifySelf="flex-end" />
                     <Flex fontSize="xl">
@@ -131,7 +131,7 @@ export class LoginForm extends React.Component<LoginFormProps, LoginFormState> {
                         Sign Up
                     </Link>
                 </Text>
-            </Center>
+            </Box>
         )
     }
 
